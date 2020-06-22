@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Carta digital</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <style>
+        #disparador-menu {
+            cursor:pointer;
+            position:fixed;
+            top:15px;
+            left:15px;
+        }
+        .enlace-menu {
+            cursor:pointer;
+            color:white !important;
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            
+            display: block;
+            transition: 0.3s;
+        }
+
+        .enlace-menu:hover {
+            color:gray !important;
+        }
+
+        /* The side navigation menu */
+        .sidenav {
+            height: 100%;
+            /* 100% Full-height */
+            width: 0;
+            /* 0 width - change this with JavaScript */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Stay on top */
+            top: 0;
+            /* Stay at the top */
+            left: 0;
+            background-color: #111;
+            /* Black*/
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            padding-top: 50px;
+            /* Place content 60px from the top */
+            transition: 0.5s;
+            /* 0.5 second transition effect to slide in the sidenav */
+        }
+
+       
+        
+
+        /* Position and style the close button (top right corner) */
+        .cerrar-menu {
+            position: absolute;
+            color:white !important;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            cursor:pointer;
+        }
+
+        .cerrar-menu:hover {
+            text-decoration:none !important;
+            color: gray !important;
+        }
+
+     
+
+       
+    </style>
+
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="cerrar-menu" onclick="closeNav()">&times;</a>
+        <a class="enlace-menu" data-destino="imagen-00">Desayunos</a>
+        <a class="enlace-menu" data-destino="imagen-01">Cerveza, vino y refrescos</a>
+        <a class="enlace-menu" data-destino="imagen-02">Café y té</a>
+        <a class="enlace-menu" data-destino="imagen-03">Cubatas</a>
+        <a class="enlace-menu" data-destino="imagen-04">Alcohol</a>
+        <a class="enlace-menu" data-destino="imagen-05">Comida y otros</a>
+        <a class="enlace-menu" data-destino="imagen-06">San Francisco 33</a>
+    </div>
+
+    <!-- Use any element to open the sidenav -->
+    
+    <i id="disparador-menu" onclick="openNav()" class="fa fa-bars fa-3x" aria-hidden="true"></i>
+
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+
+
+    <img id="imagen-00" src="./00.jpg" style="display:block;max-width:100%;width:100%;margin:0 auto;">
+    <img id="imagen-01" src="./01.jpg" style="display:block;max-width:100%;width:100%;margin:0 auto;">
+    <img id="imagen-02" src="./02.jpg" style="display:block;max-width:100%;width:100%;margin:0 auto;">
+    <img id="imagen-03" src="./03.jpg" style="display:block;max-width:100%;width:100%;margin:0 auto;">
+    <img id="imagen-04" src="./04.jpg" style="display:block;max-width:100%;width:100%;margin:0 auto;">
+    <img id="imagen-05" src="./05.jpg" style="display:block;max-width:100%;width:100%;margin:0 auto;">
+    <img id="imagen-06" src="./06.jpg" style="display:block;max-width:100%;width:100%;margin:0 auto;">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        } 
+
+        $('.enlace-menu').each(function(){
+            $(this).click(function(evento){
+                destino = $(this).attr('data-destino')
+                window.location.hash = destino;
+                closeNav()
+            })
+        })
+    </script>
+
+</body>
+
+</html>
